@@ -25,7 +25,6 @@ public interface PriceRepository extends CrudRepository<Price, Long> {
             @Param("endDate") String endDate
     );
 
-    // Define una consulta personalizada para listar todos los precios disponibles
     @Query("SELECT p FROM Price p")
     List<Price> findAllPrices();
 }
