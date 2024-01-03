@@ -1,9 +1,7 @@
 package com.sergicots.zara.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
+
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 import java.math.BigDecimal;
@@ -14,6 +12,9 @@ import java.sql.Timestamp;
 @Cache(region = "pricesCache", usage = CacheConcurrencyStrategy.READ_WRITE)
 public class Price {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
     @Column(name = "BRAND_ID")
     private Long brandId;
 

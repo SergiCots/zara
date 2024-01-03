@@ -1,13 +1,9 @@
 # H2
 spring:
-  jpa:
-    database: H2
-    show-sql: true
+  application:
+    name: zara
   h2:
     console:
-      enabled: true                         # enabling H2 Console: /h2-console
+      enabled: true
       settings:
         web-allow-others: true
-  datasource:
-    platform: h2                            # database platform
-    url: jdbc:h2:mem:zara                 # JDBC URL

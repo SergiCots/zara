@@ -17,21 +17,17 @@ import springfox.documentation.swagger.web.UiConfigurationBuilder;
 @Configuration
 public class SwaggerConfig {
 
-	public static final String DEFAULT_HANDLER_PACKAGE 	= "com.sergicots.zara.controller";	//what to expose by Swagger
-	public static final String DEFAULT_API_PATH_PATTERN = "/api/.*";		//the path pattern too to expose
+	public static final String DEFAULT_HANDLER_PACKAGE 	= "com.sergicots.zara.controller";
+	public static final String DEFAULT_API_PATH_PATTERN = "/v1/prices.*";
 	
     @Bean
     public Docket api() { 
         return new Docket(DocumentationType.SWAGGER_2)  
           .select()                                  
           .apis(RequestHandlerSelectors.basePackage(DEFAULT_HANDLER_PACKAGE))
-          .paths(PathSelectors.regex(DEFAULT_API_PATH_PATTERN))
+          .paths(PathSelectors.any())
           .build();                                           
     }
-    
-    /**
-     * SwaggerUI information
-     */
 
     @Bean
     UiConfiguration uiConfig() {
